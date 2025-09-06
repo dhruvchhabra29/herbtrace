@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HerbTrace - Trace the Origins of Your Herbs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
+    <!-- Custom styles for unique animations and effects -->
+    <style>
+        body { font-family: 'Arial', sans-serif; overflow-x: hidden; }
+        .hero-bg { background: linear-gradient(135deg, #a8d5ba 0%, #d0ecc9 100%); position: relative; overflow: hidden; }
+        .hero-bg::before { content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(168, 213, 186, 0.3) 0%, transparent 70%); animation: gentle-pulse 4s ease-in-out infinite; }
+        @keyframes gentle-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .feature-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
+        .scroll-reveal.in-view { opacity: 1; transform: translateY(0); }
+        .btn-primary { background: #4ade80; color: white; border-radius: 8px; padding: 12px 24px; transition: background 0.3s ease; }
+        .btn-primary:hover { background: #22c55e; }
+        .floating { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/704b5580-538a-4a3d-97fe-29e4be687bc0.png" alt="Circular logo depicting intertwined herb leaves in green tones, symbolizing growth and traceability in herbal products" class="w-12 h-12 rounded-full" />
+                <h1 class="text-2xl font-bold text-green-600">HerbTrace</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors">Home</a>
+                <a href="#features" class="text-gray-700 hover:text-green-600 transition-colors">Features</a>
+                <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors">About</a>
+                <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors">Contact</a>
+            </nav>
+            <button class="md:hidden text-gray-700 focus:outline-none" onclick="toggleMenu()" id="menu-btn">
+                <ion-icon name="menu-outline" size="large"></ion-icon>
+            </button>
+        </div>
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 hidden">
+            <nav class="flex flex-col space-y-2 p-4">
+                <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors">Home</a>
+                <a href="#features" class="text-gray-700 hover:text-green-600 transition-colors">Features</a>
+                <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors">About</a>
+                <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg py-20 relative">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6 animate-pulse">Unlock the Secrets of Your Herbs</h2>
+            <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">Discover the origin, cultivation, and journey of your favorite herbs with our advanced tracing technology. From farm to fork, ensure transparency and quality.</p>
+            <button class="btn-primary text-lg font-semibold" onclick="alert('Starting your herb trace journey!')">Start Tracing Now</button>
+            <div class="mt-12">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/67a264b9-1321-47b2-acaf-9875dfc51f0f.png" alt="Illuminated globe with glowing points tracing herb paths from diverse global farms across continents, connecting to a stylized kitchen with fresh herbs arranged in a basket, evoking sustainability and authenticity" class="mx-auto rounded-lg shadow-lg floating" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-4xl font-bold text-center text-gray-800 mb-12">Key Features</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-100 p-8 rounded-lg text-center shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/005e4415-6c5a-4955-9388-067d53a1a560.png" alt="Detailed map overlay with pins marking herb farms in various regions, including labels for lavender in Provence and mint in the Himalayas, showing traceability paths" class="mx-auto mb-4 rounded" />
+                    <h4 class="text-2xl font-semibold text-green-600 mb-4">Global Tracing</h4>
+                    <p class="text-gray-600">Trace herbs across the world, from organic farms in the Himalayas to sustainable plantations in South America. See the full journey in real-time.</p>
+                </div>
+                <div class="feature-card bg-gray-100 p-8 rounded-lg text-center shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ee85bafe-492a-4f16-bbb2-bcbc32a945b5.png" alt="High-tech laboratory scene with scientists analyzing herb samples under microscopes, digital screens displaying composition data like flavonoids and nutrients" class="mx-auto mb-4 rounded" />
+                    <h4 class="text-2xl font-semibold text-green-600 mb-4">Quality Assurance</h4>
+                    <p class="text-gray-600">Verify authenticity with lab-tested data, ingredient breakdowns, and blockchain-verified certificates for every batch.</p>
+                </div>
+                <div class="feature-card bg-gray-100 p-8 rounded-lg text-center shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3ab01aff-ef06-4ef9-81d4-e0ffa1ca527d.png" alt="User-friendly app interface on a smartphone, showing herb search with filters for region, organic status, and usage, like tea blends or culinary herbs" class="mx-auto mb-4 rounded" />
+                    <h4 class="text-2xl font-semibold text-green-600 mb-4">Easy Search & Scan</h4>
+                    <p class="text-gray-600">Use our app to scan product codes or search by herb type. Get instant insights and share findings with friends for a transparent experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/97ab3e36-2411-41b5-ac34-b12020651075.png" alt="Group of diverse people in a modern office collaborating on tablets, surrounded by herb plants on desks, symbolizing innovation in herbal technology and sustainability" class="rounded-lg shadow-lg" />
+                </div>
+                <div class="scroll-reveal">
+                    <h3 class="text-4xl font-bold text-gray-800 mb-6">About HerbTrace</h3>
+                    <p class="text-lg text-gray-700 mb-6">Founded in 2023, HerbTrace is revolutionizing the herbal industry by providing consumers with unprecedented transparency. Our mission is to connect you directly to the source, promoting ethical farming and sustainable practices.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>Partnered with over 500 organic farms worldwide</li>
+                        <li>AI-powered tracing algorithms for accuracy</li>
+                        <li>Committed to zero-waste and eco-friendly packaging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-4xl font-bold text-center text-gray-800 mb-12">Get in Touch</h3>
+            <div class="max-w-lg mx-auto">
+                <form class="bg-gray-100 p-8 rounded-lg shadow-md">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 font-semibold">Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 font-semibold">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 font-semibold">Message</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full text-lg font-semibold" onclick="submitForm(event)">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 HerbTrace. All rights reserved. | Designed for Transparency in Herbs.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Form submission (mock)
+        function submitForm(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+        }
+
+        // Scroll reveal animation
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('in-view');
+                }
+            });
+        });
+
+        // Smooth scroll to sections
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
